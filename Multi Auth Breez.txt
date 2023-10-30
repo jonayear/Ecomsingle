@@ -1,0 +1,19 @@
+Laravel Authentication::(with breez)---command
+  After Download Laravel Package and set db then breez-
+
+	*composer require laravel/breeze --dev
+	*php artisan migrate
+	*npm install && npm run dev
+    run vite now open another cmd
+	*composer require santigarcor/laratrust
+	*php artisan vendor:publish --tag="laratrust"
+	*php artisan laratrust:setup
+	*composer dump-autoload
+	*php artisan laratrust:seeder
+  Add this at database/seeds/DatabaseSeeder.php within the run function
+	=>$this->call(LaratrustSeeder::class);
+  config/laratrust_seeder.php change this file according to you(admin,user) then go to composer
+	*composer dump-autoload
+	*php artisan migrate
+	*php artisan db:seed
+then go laratrust usage-> Roles & permission->User Roles Assignment & Removal->Assignment
