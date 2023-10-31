@@ -1,6 +1,12 @@
 @extends('user_template.layouts.layouts')
 
 @section('content')
-<h2 class="text-center my-5">User Profile</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
 
+        </div>
+        <div class="col-lg-8"></div>
+    </div>
+</div>
 @endsection

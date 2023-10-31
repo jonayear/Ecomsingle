@@ -39,6 +39,15 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/Today-Deal','ToydayDeal')->name('todaydeal');
     Route::get('/Customer-Service','CustomerService')->name('customerservice');
 });
+Route::middleware(['auth','role:user'])->group(function(){
+    Route::controller(UserController::class)->group(function(){
+        Route::get('/Add-To-Cart','AddToCart')->name('AddToCart');
+        Route::get('/Check-Out','CheckOut')->name('CheckOut');
+        Route::get('/User-Profile','UserProfile')->name('UserProfile');
+        Route::get('/Today-Deal','ToydayDeal')->name('todaydeal');
+        Route::get('/Customer-Service','CustomerService')->name('customerservice');
+    });
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified','role:user'])->name('dashboard');
