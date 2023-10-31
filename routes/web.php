@@ -30,7 +30,7 @@ Route::controller(HomeController::class)->group(function(){
 });
 
 Route::controller(UserController::class)->group(function(){
-    Route::get('/Category-page','CategoryPage')->name('Category');
+    Route::get('/Category-page/{id}/{slug}','CategoryPage')->name('Category');
     Route::get('/Single-product','SingleProduct')->name('Single-product');
     Route::get('/Add-To-Cart','AddToCart')->name('AddToCart');
     Route::get('/Check-Out','CheckOut')->name('CheckOut');

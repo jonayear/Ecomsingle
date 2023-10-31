@@ -47,7 +47,7 @@
                      <div class="custom_menu">
                         <ul>
                            <li><a href="">Best Sellers</a></li>
-                           <li><a href="{{ route('Category') }}">Gift Ideas</a></li>
+                           <li><a href="">Gift Ideas</a></li>
                            <li><a href="{{ route('newrelease') }}">New Releases</a></li>
                            <li><a href="{{ route('todaydeal') }}">Today's Deals</a></li>
                            <li><a href="{{ route('customerservice') }}">Customer Service</a></li>
@@ -80,7 +80,7 @@
                         $categories = App\Models\Category::latest()->get();
                     @endphp
                     @foreach($categories as $cat)
-                     <a href="fashion.html">{{ $cat->category_name }}</a>
+                     <a href="{{ route('Category',[$cat->id,$cat->slug]) }}">{{ $cat->category_name }}</a>
                     @endforeach
                   </div>
                   <span class="toggle_icon" onclick="openNav()"><img src="{{asset('home/images/toggle-icon.png')}}"></span>
