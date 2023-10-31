@@ -44,6 +44,9 @@ Route::middleware(['auth','role:user'])->group(function(){
         Route::get('/Add-To-Cart','AddToCart')->name('AddToCart');
         Route::get('/Check-Out','CheckOut')->name('CheckOut');
         Route::get('/User-Profile','UserProfile')->name('UserProfile');
+        Route::get('/Pending-Order','PendingOrder')->name('pending.order');
+        Route::get('/History','History')->name('histroy');
+        Route::get('/Log-Out','LogOut')->name('logout');
         Route::get('/Today-Deal','ToydayDeal')->name('todaydeal');
         Route::get('/Customer-Service','CustomerService')->name('customerservice');
     });

@@ -33,6 +33,18 @@ class UserController extends Controller
         return view('user_template.UserProfile');
     }
 
+    public function PendingOrder(){
+        return view('user_template.PendingOrder');
+    }
+
+    public function History(){
+        return view('user_template.History');
+    }
+
+    public function LogOut(){
+
+    }
+
     public function NewRelease(){
         return view('user_template.NewRelease');
     }
