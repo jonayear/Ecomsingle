@@ -14,7 +14,8 @@ class UserController extends Controller
         return view('user_template.CategoryPage',compact('category','products'));
     }
 
-    public function SingleProduct(){
+    public function SingleProduct($id){
+        $products = Product::findOrFail($id);
         return view('user_template.SingleProduct');
     }
 
