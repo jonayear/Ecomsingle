@@ -24,7 +24,11 @@
                             <p class="price_text text-left" style="margin-left:20px;">Product Quantity: <span style="color: #262626;"> {{ $products->quantity}}</span></p>
                         </div>
                         <div class="btn_main">
-                            <div class="btn btn-outline-danger"><a href="#">Add To Cart</a></div>
+                            <form method="POST" action="{{ route('add.cart',$products->id) }}">
+                                @csrf
+                                <input class="btn btn-outline-danger" type="submit" value="Add to cart" name="">
+                            </form>
+                            {{-- <div class="btn btn-outline-danger"><a href="#">Add To Cart</a></div> --}}
                         </div>
                     </div>
                 </div>

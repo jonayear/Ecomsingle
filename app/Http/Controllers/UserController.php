@@ -25,6 +25,10 @@ class UserController extends Controller
         return view('user_template.AddToCart');
     }
 
+    public function CartProduct(Request $request,$id){
+
+    }
+
     public function CheckOut(){
         return view('user_template.CheckOut');
     }
