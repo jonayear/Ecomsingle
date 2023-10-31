@@ -16,7 +16,9 @@ class UserController extends Controller
 
     public function SingleProduct($id){
         $products = Product::findOrFail($id);
-        return view('user_template.SingleProduct');
+        $subcat_id = Product::where('id',$id)->value('product_subcategory_id');
+        $related_products = Product::where('product_subcategory_id',$subcat_id)->latest()->get();
+        return view('user_template.SingleProduct',compact('products','related_products'));
     }
 
     public function AddToCart(){
