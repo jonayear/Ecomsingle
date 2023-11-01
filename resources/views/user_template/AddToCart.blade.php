@@ -36,7 +36,7 @@
             </td>
             <td>{{ $item->price }}</td>
             <td>
-               <a class="btn btn-outline-danger my-2" onclick="return confirm('Are you sure to delete the product')" href="" role="button">Delete</a>
+               <a class="btn btn-outline-danger my-2" onclick="return confirm('Are you sure to delete the product')" href="{{ route('delete.order',$item->id) }}" role="button">Delete</a>
             </td>
         </tr>
         <?php $totalprice = $totalprice + $item->price ?>

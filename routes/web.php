@@ -39,6 +39,7 @@ Route::middleware(['auth','role:user'])->group(function(){
     Route::controller(UserController::class)->group(function(){
         Route::get('/Add-To-Cart','AddToCart')->name('AddToCart');
         Route::post('/Add-Cart/{id}','CartProduct')->name('add.cart');
+        Route::get('/delete-Cart/{id}','DeleteProduct')->name('delete.order');
         Route::get('/Check-Out','CheckOut')->name('CheckOut');
         Route::get('/User-Profile','UserProfile')->name('UserProfile');
         Route::get('/Pending-Order','PendingOrder')->name('pending.order');

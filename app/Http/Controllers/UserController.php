@@ -41,6 +41,12 @@ class UserController extends Controller
         return redirect()->route('AddToCart')->with('msg','Product Successfully Added To Your Cart');
     }
 
+    public function DeleteProduct($id){
+        Cart::findOrFail($id)->delete();
+        return redirect()->route('AddToCart')->with('msg','Product Successfully Deleted from Your Cart');
+    }
+
+
     public function CheckOut(){
         return view('user_template.CheckOut');
     }
