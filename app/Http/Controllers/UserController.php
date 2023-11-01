@@ -46,6 +46,10 @@ class UserController extends Controller
         return redirect()->route('AddToCart')->with('msg','Product Successfully Deleted from Your Cart');
     }
 
+    public function GetShippingAddress($totalprice){
+        return view('user_template.GetShippingAddress',compact('totalprice'));
+    }
+
 
     public function CheckOut(){
         return view('user_template.CheckOut');

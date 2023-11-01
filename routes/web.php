@@ -41,6 +41,7 @@ Route::middleware(['auth','role:user'])->group(function(){
         Route::post('/Add-Cart/{id}','CartProduct')->name('add.cart');
         Route::get('/delete-Cart/{id}','DeleteProduct')->name('delete.order');
         Route::get('/Check-Out','CheckOut')->name('CheckOut');
+        Route::get('/Get-shipping-Address/{totalprice}','GetShippingAddress')->name('getshippingaddress');
         Route::get('/User-Profile','UserProfile')->name('UserProfile');
         Route::get('/Pending-Order','PendingOrder')->name('pending.order');
         Route::get('/History','History')->name('histroy');
