@@ -26,6 +26,7 @@
                         <div class="btn_main">
                             <form method="POST" action="{{ route('add.cart',$products->id) }}">
                                 @csrf
+                                <input style="border-radious:30%" type="number" value="1" class="form-control my-" name="quantity" min="1"><br>
                                 <input class="btn btn-outline-danger" type="submit" value="Add to cart" name="">
                             </form>
                             {{-- <div class="btn btn-outline-danger"><a href="#">Add To Cart</a></div> --}}
@@ -52,7 +53,10 @@
                                     <div class="tshirt_img">
                                         <img src="{{asset('product_img/'.$related_product->product_img)}}"></div>
                                     <div class="btn_main">
-                                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                        <form method="POST" action="{{ route('add.cart',$products->id) }}">
+                                            @csrf
+                                            <input class="btn btn-outline-danger" type="submit" value="Add to cart" name="">
+                                        </form>
                                         <div class="seemore_bt"><a href="{{ route('single-product',[$related_product->id,$related_product->slug]) }}">See More</a></div>
                                     </div>
                                   </div>
