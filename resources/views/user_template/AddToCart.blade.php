@@ -21,6 +21,7 @@
         </tr>
       </thead>
       <tbody>
+        <?php $totalprice = 0; ?>
         @foreach($cart_item as $item)
         @php
             $Products = App\Models\Product::where('id',$item->product_id)->value('product_name');
@@ -30,16 +31,27 @@
             <td>{{ $item->id }}</td>
             <td>{{ $Products }}</td>
             <td>{{ $item->quantity }}</td>
-            <td>{{ $item->price }}</td>
             <td>
                <img style="width: 100px" src="{{asset('product_img/'.$Product_image)}}">
             </td>
+            <td>{{ $item->price }}</td>
             <td>
                <a class="btn btn-outline-danger my-2" onclick="return confirm('Are you sure to delete the product')" href="" role="button">Delete</a>
             </td>
         </tr>
+        <?php $totalprice = $totalprice + $item->price ?>
         @endforeach
       </tbody>
     </table>
+    <div class="">
+        <div class="row">
+            <div class="col-md-4">
+                <h3 class="text-center">Total Price</h3>
+            </div>
+            <div class="col-md-8">
+                <h4 class="text-center" style="margin-left:90px;"> {{ $totalprice }}</h4>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
