@@ -32,12 +32,8 @@ Route::controller(HomeController::class)->group(function(){
 Route::controller(UserController::class)->group(function(){
     Route::get('/Category-page/{id}/{slug}','CategoryPage')->name('Category');
     Route::get('/Single-product/{id}/{slug}','SingleProduct')->name('single-product');
-    Route::get('/Add-To-Cart','AddToCart')->name('AddToCart');
-    Route::get('/Check-Out','CheckOut')->name('CheckOut');
-    Route::get('/User-Profile','UserProfile')->name('UserProfile');
     Route::get('/New-Release','NewRelease')->name('newrelease');
-    Route::get('/Today-Deal','ToydayDeal')->name('todaydeal');
-    Route::get('/Customer-Service','CustomerService')->name('customerservice');
+
 });
 Route::middleware(['auth','role:user'])->group(function(){
     Route::controller(UserController::class)->group(function(){

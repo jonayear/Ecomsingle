@@ -76,7 +76,7 @@
                   <div id="mySidenav" class="sidenav">
                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                      <a href="index.html">Home</a>
-                     @php
+                    @php
                         $categories = App\Models\Category::latest()->get();
                     @endphp
                     @foreach($categories as $cat)

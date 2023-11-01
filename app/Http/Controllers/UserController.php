@@ -25,7 +25,9 @@ class UserController extends Controller
     }
 
     public function AddToCart(){
-        return view('user_template.AddToCart');
+        $userid = Auth::id();
+        $cart_item = Cart::where('user_id',$userid)->get();
+        return view('user_template.AddToCart',compact('cart_item'));
     }
 
     public function CartProduct(Request $request,$id){
