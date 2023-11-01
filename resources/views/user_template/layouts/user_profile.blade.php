@@ -3,6 +3,12 @@
 @section('content')
 <div class="container my-5">
     <div class="row">
+        @if(Session::has('msg'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('msg') }}
+            {{-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">x</button> --}}
+        </div>
+    @endif
         <div class="col-lg-4">
             <div class="box_main">
                 <ul class="list-group">

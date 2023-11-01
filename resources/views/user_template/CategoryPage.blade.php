@@ -15,9 +15,10 @@
                                     <img src="{{asset('product_img/'.$product->product_img)}}"></div>
                                  <div class="btn_main">
                                    <form method="POST" action="{{ route('add.cart',$product->id) }}">
-                                    @csrf
-                                        <input class="btn btn-outline-danger" type="submit" value="Add to cart" name="">
-                                    </form>
+                                            @csrf
+                                            <input type="hidden" value="1" name="quantity">
+                                            <input class="btn btn-outline-danger" type="submit" value="Add to cart" name="">
+                                        </form>
                                     <div class="seemore_bt my-2"><a href="{{ route('single-product',[$product->id,$product->slug]) }}">See More</a></div>
                                  </div>
                               </div>

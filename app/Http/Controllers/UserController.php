@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -26,7 +29,14 @@ class UserController extends Controller
     }
 
     public function CartProduct(Request $request,$id){
-
+        $product = Product::find($id);
+        Cart::insert([
+            'product_id'=>$product->id,
+            'user_id'=>Auth::id(),
+            'quantity'=>$request->quantity,
+            'price'=>$product->price * $request->quantity,
+        ]);
+        return redirect()->route('AddToCart')->with('msg','Product Successfully Added To Your Cart');
     }
 
     public function CheckOut(){
