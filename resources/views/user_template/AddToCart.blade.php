@@ -52,7 +52,7 @@
             <div class="col-md-8">
                 <h4 class="text-center" style="margin-left:-80px; font-weight: bold;"> {{ $totalprice }}</h4><span>
                 @if($totalprice != 0)
-                    <a class="btn btn-outline-success my-2" href="{{ route('getshippingaddress',$totalprice) }}" role="button">Checkout Now</a>
+                    <a class="btn btn-outline-success my-2" href="{{ route('getshippingaddress') }}" role="button">Checkout Now</a>
                 @endif
                 </span>
             </div>

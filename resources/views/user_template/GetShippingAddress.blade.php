@@ -5,6 +5,15 @@
         <div class="row">
             <div class="box_main">
                 <div class="col-md-10">
+                     @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                     <form method="POST" action="{{ route('addshippingaddress') }}">
                         @csrf
                       <div class="form-group">
