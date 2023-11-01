@@ -5,7 +5,8 @@
         <div class="row">
             <div class="box_main">
                 <div class="col-md-10">
-                    <form method="" action="">
+                    <form method="POST" action="{{ route('addshippingaddress') }}">
+                        @csrf
                       <div class="form-group">
                         <label for="phone_no">Phone Number</label>
                         <input type="number" class="form-control" id="phone_no" aria-describedby="emailHelp" placeholder="Enter Phone Number" name="phone_no">
@@ -18,11 +19,10 @@
                         <label for="postal_code">Postal Code</label>
                         <input type="number" class="form-control" id="postal_code" aria-describedby="emailHelp" placeholder="Enter Phone Number" name="postal_code">
                       </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-success">CheckOut</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-<h2>Total Price:- {{ $totalprice }} </h2>
 @endsection
