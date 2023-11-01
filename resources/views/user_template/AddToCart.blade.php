@@ -1,22 +1,23 @@
 @extends('user_template.layouts.layouts')
 
 @section('content')
-@if(Session::has('msg'))
+
+<div class="container">
+    @if(Session::has('msg'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ Session::get('msg') }}
         {{-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">x</button> --}}
     </div>
 @endif
-<div class="container">
     <h2 class="text-center my-5">Add To Cart Page</h2>
-    <table class="table">
+    <table class="table text-center">
       <thead>
         <tr>
           <th scope="col">Id</th>
           <th scope="col">Product Name</th>
           <th scope="col">Quantity</th>
-          <th scope="col">Price</th>
           <th scope="col">Image</th>
+          <th scope="col">Price</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -49,7 +50,11 @@
                 <h3 class="text-center">Total Price</h3>
             </div>
             <div class="col-md-8">
-                <h4 class="text-center" style="margin-left:90px;"> {{ $totalprice }}</h4>
+                <h4 class="text-center" style="margin-left:-80px; font-weight: bold;"> {{ $totalprice }}</h4><span>
+                @if($totalprice != 0)
+                    <a class="btn btn-outline-success my-2" href="{{-- {{ route('delete.order',$item->id) }} --}}" role="button">Checkout Now</a>
+                @endif
+                </span>
             </div>
         </div>
     </div>
