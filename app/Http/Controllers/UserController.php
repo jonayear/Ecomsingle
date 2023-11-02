@@ -79,6 +79,7 @@ class UserController extends Controller
         $userid = Auth::id();
         $cart_item = Cart::where('user_id',$userid)->get();
         $shipping_add = ShippingInfo::where('user_id',$userid)->first();
+        $status = 'pending';
         foreach ($cart_item as $item) {
             Order::insert([
                 'user_id'=>$userid,
@@ -87,22 +88,23 @@ class UserController extends Controller
                 'shipping_postalcode'=>$shipping_add->postal_code,
                 'product_id'=>$item->product_id,
                 'product_quantity'=>$item->quantity,
-                'totalprice'=>$item->price
+                'totalprice'=>$item->price,
+                'status'=>$status,
             ]);
-
             $id = $item->id;
             Cart::findOrFail($id)->delete();
         }
+        ShippingInfo::where('user_id',$userid)->first()->delete();
         // dd('ConfirmOrder');
         // exit;
-        return redirect()->route('pendingorder')->with('msg','You Order Placed Successfully');
+        return redirect()->route('pendingorders')->with('msg','You Order Placed Successfully');
     }
 
     public function UserProfile(){
         return view('user_template.UserProfile');
     }
 
-    public function PendingOrder(){
+    public function PendingOrders(){
         $Orders = Order::where('status','pending')->get();
         return view('user_template.PendingOrder',compact('Orders'));
     }

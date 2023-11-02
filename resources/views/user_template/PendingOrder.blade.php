@@ -9,6 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10">
+            <h3 class="text-center">Pending Orders</h3>
             <table class="table text-center">
       <thead>
         <tr>
