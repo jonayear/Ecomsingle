@@ -50,13 +50,13 @@
                     <h4 class="text-center" style="margin-left:310px; font-weight: bold;"> {{ $totalprice }}</h4>
                 </div>
             </div>
-         <form method="Post" action="">
+            <form method="Post" action="{{ route('confirmorder') }}">
                 @csrf
-                <button type="button" class="btn btn-success btn-lg my-2">Confirm Order</button>
+                <button type="submit" class="btn btn-success my-2">Place Order</button>
             </form>
              <form method="Post" action="">
                 @csrf
-                 <button type="button" class="btn btn-danger btn-lg">Cancel Order</button>
+                  <input type="submit" class="btn btn-danger my-2" value="Cancel Order">
             </form>
         </div>
 

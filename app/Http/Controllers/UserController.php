@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ShippingInfo;
 use Illuminate\Http\Request;
@@ -72,6 +73,29 @@ class UserController extends Controller
         $cart_item = Cart::where('user_id',$userid)->get();
         $shipping_add = ShippingInfo::where('user_id',$userid)->first();
         return view('user_template.CheckOut',compact('cart_item','shipping_add'));
+    }
+
+    public function ConfirmOrder(){
+        $userid = Auth::id();
+        $cart_item = Cart::where('user_id',$userid)->get();
+        $shipping_add = ShippingInfo::where('user_id',$userid)->first();
+
+        foreach ($cart_item as $item) {
+            Order::insert([
+                'user_id'=>$userid,
+                'shipping_phoneno'=>$shipping_add->phone_no,
+                'shipping_city'=>$shipping_add->city_name,
+                'shipping_postalcode'=>$shipping_add->postal_code,
+                'product_id'=>$item->product_id,
+                'product_quantity'=>$item->quantity,
+                'totalprice'=>$item->price,
+            ]);
+
+            $id = $item->id;
+            Cart::findOrFail($id)->delete();
+        }
+
+        return redirect()->route('pendingorder')->with('msg','You Order Placed Successfully');
     }
 
     public function UserProfile(){

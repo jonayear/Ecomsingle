@@ -7,7 +7,7 @@
             <div class="box_main">
                 <ul class="list-group">
                   <li class="list-group-item"><a href="{{ route('UserProfile') }}">Dashbord</a></li>
-                  <li class="list-group-item"><a href="{{ route('pending.order') }}">Pending Orders</a></li>
+                  <li class="list-group-item"><a href="{{ route('pendingorder') }}">Pending Orders</a></li>
                   <li class="list-group-item"><a href="{{ route('histroy') }}">History</a></li>
                   <li class="list-group-item"><a href="">Logout</a></li>
                 </ul>

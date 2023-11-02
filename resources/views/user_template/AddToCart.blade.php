@@ -1,14 +1,14 @@
 @extends('user_template.layouts.layouts')
 
 @section('content')
-
-<div class="container">
-    @if(Session::has('msg'))
+@if(Session::has('msg'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ Session::get('msg') }}
         {{-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">x</button> --}}
     </div>
 @endif
+<div class="container">
+
     <h2 class="text-center my-5">Add To Cart Page</h2>
     <table class="table text-center">
       <thead>
