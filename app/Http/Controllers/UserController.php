@@ -68,7 +68,10 @@ class UserController extends Controller
     }
 
     public function CheckOut(){
-        return view('user_template.CheckOut');
+        $userid = Auth::id();
+        $cart_item = Cart::where('user_id',$userid)->get();
+        $shipping_add = ShippingInfo::where('user_id',$userid)->first();
+        return view('user_template.CheckOut'compact('cart_item','shipping_add'));
     }
 
     public function UserProfile(){
