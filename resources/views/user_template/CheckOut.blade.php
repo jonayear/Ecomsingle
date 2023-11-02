@@ -42,16 +42,29 @@
                 @endforeach
               </tbody>
             </table>
-             <div class="row">
-            <div class="col-md-4">
-                <h3 class="text-center">Total Price</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="text-center">Total Price</h3>
+                </div>
+                <div class="col-md-8">
+                    <h4 class="text-center" style="margin-left:310px; font-weight: bold;"> {{ $totalprice }}</h4>
+                </div>
             </div>
-            <div class="col-md-8">
-                <h4 class="text-center" style="margin-left:310px; font-weight: bold;"> {{ $totalprice }}</h4>
-            </div>
-        </div>
+         <form method="Post" action="">
+                @csrf
+                <button type="button" class="btn btn-success btn-lg my-2">Confirm Order</button>
+            </form>
+             <form method="Post" action="">
+                @csrf
+                 <button type="button" class="btn btn-danger btn-lg">Cancel Order</button>
+            </form>
         </div>
 
+    </div>
+    <div class="row my-5">
+        <div class="col-md-8  m-auto">
+
+        </div>
     </div>
 </div>
 
