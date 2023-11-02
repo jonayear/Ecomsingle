@@ -6,5 +6,28 @@
         {{-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">x</button> --}}
     </div>
 @endif
-Pending Order
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($Orders as $order)
+        <tr>
+            <td>{{ $order->id }}</td>
+            <td>{{ $order->product_quantity }}</td>
+            <td>{{ $order->totalprice }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+        </div>
+    </div>
+</div>
 @endsection

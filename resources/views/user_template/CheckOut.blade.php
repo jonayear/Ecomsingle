@@ -50,7 +50,7 @@
                     <h4 class="text-center" style="margin-left:310px; font-weight: bold;"> {{ $totalprice }}</h4>
                 </div>
             </div>
-            <form method="Post" action="{{ route('confirmorder') }}">
+            <form method="Post" action="{{route('confirmorder')}}">
                 @csrf
                 <button type="submit" class="btn btn-success my-2">Place Order</button>
             </form>
